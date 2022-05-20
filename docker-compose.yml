@@ -1,0 +1,23 @@
+version: "3.1"
+
+services:
+  db:
+    image: postgres
+    restart: always
+    ports:
+      - 5433:5432
+    volumes:
+      - vol_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=hnp
+      - POSTGRES_USER=hnp
+      - POSTGRES_PASSWORD=password
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 4000:8080
+
+volumes:
+  vol_data:
